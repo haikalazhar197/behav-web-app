@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Firebase
+
+To run the project create a file in src folder named fire.js
+
+`$ touch fire.js`
+
+Then copy the code in fire.example.js into the file and replace the values with your specific values
+
 ## Available Scripts
 
 In the project directory, you can run:
