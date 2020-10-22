@@ -16,6 +16,26 @@ const GaugeTesting = () => {
     ref.on("value", (snapshot) => {
       console.log(snapshot.val());
       setValue(snapshot.val());
+      let condition = "";
+      if (snapshot.val() === 0) {
+        condition = "DISCONNECTED";
+      } else if (snapshot.val() < 70) {
+        condition = "Ataraxy";
+      } else if (snapshot.val() < 90) {
+        condition = "Relaxed";
+      } else if (snapshot.val() < 110) {
+        condition = "Nervous";
+      } else if (snapshot.val() < 130) {
+        condition = "Agitated";
+      } else if (snapshot.val() < 150) {
+        condition = "Fear";
+      } else {
+        condition = "Stress";
+      }
+      app
+        .database()
+        .ref("condition")
+        .set(condition, (error) => console.log(error));
     });
 
     return () => {

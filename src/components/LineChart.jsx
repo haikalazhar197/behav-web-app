@@ -45,7 +45,7 @@ const LineChart = ({ width, height, deviceId }) => {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    console.log(value);
+    // console.log(value);
     const timer = setTimeout(() => {
       updateData();
       const now = currentTime + 1;

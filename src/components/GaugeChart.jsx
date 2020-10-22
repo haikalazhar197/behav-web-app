@@ -9,9 +9,19 @@ const GaugeChart = ({ width, deviceId }) => {
   const [data, setData] = useState(0);
 
   useEffect(() => {
+    const ref = app.database().ref("Data-Collect/BPM");
+    ref.limitToLast(1).on("child_added", (snapshot) => {
+      console.log(snapshot);
+    });
+    return () => {
+      ref.off();
+    };
+  }, []);
+
+  useEffect(() => {
     const ref = app.database().ref("BPM");
     ref.on("value", (snapshot) => {
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
       setData(snapshot.val());
     });
     return () => {
